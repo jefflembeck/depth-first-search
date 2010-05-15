@@ -3,7 +3,7 @@ Class:  CSE 680
 Assignment: HW 6
 Date Due: 5/16/10
 
-To Compile:
+To Run:
 	ruby main.rb file
 	where file is the folder/file structure where the test file is, example:  ruby main.rb data/cyc1
 
