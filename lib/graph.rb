@@ -22,6 +22,5 @@ class Graph
     v = st[0].to_i
     e = st[1].to_i
     @vertices[v].connect(e)
-    @vertices[e].connect(v)
   end
 end

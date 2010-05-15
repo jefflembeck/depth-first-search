@@ -25,7 +25,7 @@ def detect_cycle filename
   @graph.vertices.each_with_index do |vertex, index|
     vertex.edges.each_with_index do |connected, j|
       if conditions_met(index, connected, cyclefound)
-        puts "Cycle found: #{index} #{connected}"
+        puts "Cycle found:"
         print_cycle(index, connected)
         cyclefound = true
       end
@@ -36,14 +36,18 @@ def detect_cycle filename
 end
 
 def print_cycle index, connected
-   p = @graph.vertices[connected].parent
-    puts index
-    puts connected
-    until p == -1
-      puts p
-      par = p
-      p = @graph.vertices[par].parent
-    end
+  stack = []
+  p = @graph.vertices[index].parent
+  stack.push(connected)  
+  stack.push(index)
+  until p == -1 do
+    stack.push(p)
+    par = p
+    p = @graph.vertices[par].parent
+  end
+  until stack.size == 0 do
+    puts stack.pop
+  end
 end
 
 def conditions_met i, j, cycle
