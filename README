@@ -1,0 +1,31 @@
+Detect Cycle in a Directed Graph
+
+function detect_cycle(G)
+/* return True if directed graph G contains a cycle */
+1.  for each vertex vi of G do
+2.		G.V[i].mark <- not-visited;
+3.	time <- 0;
+4.	for each vertex vi of G do
+5.		if (G.V[i].mark) = not-visited) then
+6.			G.V[i].parent <- -1;
+7.			dfs_order(G,i,time);
+8.	for each edge(vi,vj) of G do
+9.		if (G.V[i].discover_time > G.V[j].discover_time and G.V[i].finish_time < G.V[j].finish_time) then
+10.			return true
+11. return false
+
+
+Depth First Search - Preorder/Postorder
+
+procedure dfs_order(G, i, alters time)
+/*depth first search from vertex vi */
+/* label visited vertices in preorder and postorder */
+1.	G.V[i].mark <- visited;
+2.	time <- time + 1;
+3.	G.V[i].discover_time <- time
+4.	for each edge (i,j) incident on i do
+5.		if (G.V[j].mark = not-visited) then
+6.			G.V[j].parent <- i;
+7.			dfs_order(G, j, time);
+8.	time <- time + 1;
+9.	G.V[i].finish_time <- time;
