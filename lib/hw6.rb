@@ -7,6 +7,7 @@ def detect_cycle filename
   s = f.readline
   number_of_vertices = s.split(' ')[0].to_i
   number_of_edges = s.split(' ')[1].to_i
+  #
   @graph.populate(number_of_vertices)
   s = f.readline #burn the empty row
   until f.eof
