@@ -40,7 +40,7 @@ def print_cycle index, connected
   p = @graph.vertices[index].parent
   stack.push(connected)  
   stack.push(index)
-  until p == -1 do
+  until p == @graph.vertices[connected].parent do
     stack.push(p)
     par = p
     p = @graph.vertices[par].parent
